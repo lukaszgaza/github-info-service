@@ -12,7 +12,8 @@ public class GithubServiceIntegrationTest {
 
     @Test
     public void shouldReturnRepositoryInfoForCorrectOwnerAndRepository() {
-        GithubRepositoryInfo githubRepositoryInfo = GithubService.getRepositoryInfo("lukaszgaza", "datasharing");
+        GithubService githubService = new GithubService();
+        GithubRepositoryInfo githubRepositoryInfo = githubService.getRepositoryInfo("lukaszgaza", "datasharing");
 
         assertEquals("lukaszgaza/datasharing", githubRepositoryInfo.getFullName());
         assertEquals("The Leek group guide to data sharing ", githubRepositoryInfo.getDescription());
@@ -23,21 +24,23 @@ public class GithubServiceIntegrationTest {
 
     @Test
     public void shouldFailIfProvidedIncorrectRepository() {
+        GithubService githubService = new GithubService();
         try {
-            GithubService.getRepositoryInfo("lukaszgaza", "fake_repo");
+            githubService.getRepositoryInfo("lukaszgaza", "fake_repo");
             fail();
         } catch (HttpClientErrorException ex) {
-
+            assertTrue(true);
         }
     }
 
     @Test
     public void shouldFailIfProvidedIncorrectUser() {
+        GithubService githubService = new GithubService();
         try {
-            GithubService.getRepositoryInfo("fake_user_lukaszgaza", "datasharing");
+            githubService.getRepositoryInfo("fake_user_lukaszgaza", "datasharing");
             fail();
         } catch (HttpClientErrorException ex) {
-
+            assertTrue(true);
         }
     }
 }

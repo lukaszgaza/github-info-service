@@ -2,10 +2,14 @@ package net.lukaszgaza.web.github.githubrestservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
+@AllArgsConstructor
+@EqualsAndHashCode
 public class GithubRepositoryInfo {
 
     @JsonProperty("full_name")
