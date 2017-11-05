@@ -27,6 +27,9 @@ public class GithubInfoController {
         // TODO - On purpose I'm ignoring here any validation of input data
         log.info("Received request for owner={}, repositoryName={}", owner, repositoryName);
         try {
+            // I assumed that the the description of the output
+            // (with new lines after each attribtue) was only an example
+            // and returning not pretty-formatted JSON is ok
             return githubService.getRepositoryInfo(owner, repositoryName);
         } catch (HttpClientErrorException ex) {
             log.warn("Exception during Github API request", ex.getMessage());

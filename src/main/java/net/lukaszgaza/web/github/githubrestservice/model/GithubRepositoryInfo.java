@@ -12,13 +12,29 @@ import lombok.Getter;
 @EqualsAndHashCode
 public class GithubRepositoryInfo {
 
-    @JsonProperty("full_name")
     private String fullName;
     private String description;
-    @JsonProperty("clone_url")
     private String cloneUrl;
-    @JsonProperty("stargazers_count")
     private String stars;
-    @JsonProperty("created_at")
     private String createdAt;
+
+    @JsonProperty("full_name")
+    public void setFull_name(String fullName) {
+        this.fullName = fullName;
+    }
+
+    @JsonProperty("clone_url")
+    public void setClone_url(String cloneUrl) {
+        this.cloneUrl = cloneUrl;
+    }
+
+    @JsonProperty("stargazers_count")
+    public void setStargazers_count(String stars) {
+        this.stars = stars;
+    }
+
+    @JsonProperty("created_at")
+    public void setCreated_at(String createdAt) {
+        this.createdAt = createdAt;
+    }
 }
